@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
-import { 
-  Shield, 
-  Activity, 
-  AlertTriangle, 
-  CheckCircle, 
-  TrendingUp, 
-  RefreshCw, 
-  FileText, 
-  BarChart2, 
-  Key, 
-  Globe, 
-  ThumbsUp, 
-  ThumbsDown 
+import {
+  Shield,
+  Activity,
+  AlertTriangle,
+  CheckCircle,
+  TrendingUp,
+  RefreshCw,
+  FileText,
+  BarChart2,
+  Key,
+  Globe,
+  ThumbsUp,
+  ThumbsDown
 } from 'lucide-react';
 import { Line, Doughnut, Bar } from 'react-chartjs-2';
 import {
@@ -42,7 +42,7 @@ ChartJS.register(
   Filler
 );
 
-const BACKEND_URL = 'http://localhost:8000';
+const BACKEND_URL = 'https://trustlens-backend-urgz.onrender.com';;
 
 interface StatsData {
   totalScans: number;
@@ -145,8 +145,8 @@ function App() {
       },
       y: {
         grid: { color: 'rgba(34, 46, 69, 0.4)' },
-        ticks: { 
-          color: '#64748b', 
+        ticks: {
+          color: '#64748b',
           font: { family: 'Inter', size: 10 },
           stepSize: 1
         },
@@ -219,8 +219,8 @@ function App() {
       },
       y: {
         grid: { color: 'rgba(34, 46, 69, 0.4)' },
-        ticks: { 
-          color: '#64748b', 
+        ticks: {
+          color: '#64748b',
           font: { family: 'Inter', size: 10 },
           stepSize: 1
         },
@@ -237,11 +237,11 @@ function App() {
           <Shield size={26} className="logo-icon" />
           <span className="logo-text">TrustLens Admin</span>
         </div>
-        
+
         <nav style={{ flexGrow: 1 }}>
           <ul className="nav-list">
             <li>
-              <button 
+              <button
                 className={`nav-item ${activeTab === 'dashboard' ? 'active' : ''}`}
                 onClick={() => setActiveTab('dashboard')}
               >
@@ -250,7 +250,7 @@ function App() {
               </button>
             </li>
             <li>
-              <button 
+              <button
                 className={`nav-item ${activeTab === 'logs' ? 'active' : ''}`}
                 onClick={() => setActiveTab('logs')}
               >
@@ -273,12 +273,12 @@ function App() {
           <div className="title-group">
             <h1>{activeTab === 'dashboard' ? 'Dashboard Analytics' : 'Scan Audit Logs'}</h1>
             <p>
-              {activeTab === 'dashboard' 
-                ? 'Overview of manipulative pattern detection, classifications, and system health.' 
+              {activeTab === 'dashboard'
+                ? 'Overview of manipulative pattern detection, classifications, and system health.'
                 : 'Full transaction logs of extension-submitted scans and user feedback inputs.'}
             </p>
           </div>
-          
+
           <button className="refresh-btn" onClick={fetchStats} disabled={loading}>
             <RefreshCw size={14} className={loading ? 'spinner' : ''} />
             <span>Refresh Data</span>
